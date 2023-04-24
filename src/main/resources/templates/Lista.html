@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/js/uikit-icons.min.js"></script>
+    <title>Inicio</title>
+</head>
+
+<body>
+
+    <div class="uk-container" >
+        <a th:href="@{/new}" class="uk-button uk-button-primary">New Person</a>
+        <table class="uk-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="persona:${Personas}">
+                    <td th:text="${persona.id}"></td>
+                    <td th:text="${persona.name}"></td>
+                    <td th:text="${persona.phone}"></td>
+                    <td>
+                        <a th:href="@{/edit/}+${persona.id}" class="uk-button uk-button-secondary">Edit</a>
+                        <a th:Onclick="deletePerson([[${persona.id}]])" class="uk-button uk-button-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="Funciones.js"></script>
+
+</html>

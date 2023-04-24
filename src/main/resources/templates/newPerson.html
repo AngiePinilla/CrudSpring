@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.12/dist/js/uikit-icons.min.js"></script>
+    
+    <title>New</title>
+</head>
+<body>
+
+    <div class="uk-container uk-container-large">
+        <div class="uk-container uk-container-small">
+            <form class="uk-form-stacked" th:action="@{/save}" th:object="${Persona}" method="post">
+                <div class="uk-container">
+                    <div class="uk-tile uk-tile-muted uk-padding-remove">
+                        <p class="uk-h4">New Person</p>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Id</label>
+                    <div class="uk-form-controls">
+                        <input th:field="*{id}" class="uk-input" id="form-stacked-text" type="text">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Name</label>
+                    <div class="uk-form-controls">
+                        <input th:field="*{name}" class="uk-input" id="form-stacked-text" type="text">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Phone</label>
+                    <div class="uk-form-controls">
+                        <input th:field="*{phone}" class="uk-input" id="form-stacked-text" type="text">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <button type="submit" class="uk-button uk-button-default">Save Person</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>
